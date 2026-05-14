@@ -5,146 +5,73 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="dark">
 <title>Install the App — The Calling of My Angel</title>
-<meta property="og:title" content="Install the App — The Calling of My Angel">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="My Angel">
 <meta name="theme-color" content="#160E08">
 <link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
 <style>
-  .install-hero {
+  .install-wrap {
+    max-width: 520px; margin: 60px auto 40px;
     text-align: center;
-    padding: 30px 0 12px;
+    padding: 36px 28px;
   }
-  .install-phone-icon {
-    display: inline-flex; align-items: center; justify-content: center;
-    width: 110px; height: 110px;
+  .install-icon-wrap {
+    width: 120px; height: 120px;
+    margin: 0 auto 26px;
     border-radius: 50%;
-    background: linear-gradient(135deg, rgba(248,229,176,0.15), rgba(201,168,76,0.05));
-    border: 2px solid rgba(248,229,176,0.4);
+    background: linear-gradient(135deg, rgba(248,229,176,0.18), rgba(201,168,76,0.04));
+    border: 1.5px solid rgba(248,229,176,0.4);
     box-shadow: 0 0 40px rgba(248,229,176,0.25);
-    margin-bottom: 22px;
-    animation: floatY 4s ease-in-out infinite;
-  }
-  .install-phone-icon svg { width: 56px; height: 56px; color: var(--gold-light); }
-  @keyframes floatY { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-
-  .install-status {
-    display: inline-block;
-    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 3px;
-    text-transform: uppercase; color: var(--gold);
-    padding: 6px 18px; border-radius: 30px;
-    background: rgba(201,168,76,0.1);
-    border: 1px solid rgba(201,168,76,0.3);
-    margin: 14px 0 30px;
-  }
-  .install-status.installed {
-    background: rgba(46,160,67,0.12);
-    border-color: rgba(46,160,67,0.55);
-    color: #7BC97D;
-  }
-
-  /* Cards for instructions per device */
-  .install-card {
-    max-width: 560px; margin: 0 auto 22px;
-    background: linear-gradient(135deg, var(--paper, #0F0A04) 0%, var(--paper-warm, #1A1208) 100%);
-    border: 1px solid rgba(201,168,76,0.28);
-    border-radius: 10px;
-    padding: 28px 26px;
-    box-shadow: 0 8px 28px rgba(0,0,0,0.5);
-    display: none;
-  }
-  .install-card.active { display: block; animation: cardIn 0.4s ease-out; }
-  @keyframes cardIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
-
-  .install-card h2 {
-    font-family: 'Cinzel', serif; font-size: 20px; font-weight: 700;
-    color: var(--white); letter-spacing: 1.5px; margin-bottom: 8px;
-    text-align: center;
-  }
-  .install-card .sub {
-    text-align: center; font-style: italic; color: #B5A37F;
-    font-size: 14px; margin-bottom: 22px;
-  }
-
-  .install-steps { list-style: none; padding: 0; counter-reset: step; }
-  .install-steps li {
-    counter-increment: step;
-    display: flex; gap: 14px; padding: 14px 0;
-    border-bottom: 1px dashed rgba(201,168,76,0.15);
-    font-size: 15px; line-height: 1.55; color: #EDDDC0;
-  }
-  .install-steps li:last-child { border-bottom: none; }
-  .install-steps li::before {
-    content: counter(step);
-    flex: 0 0 32px; height: 32px;
-    background: linear-gradient(135deg, #F8E5B0 0%, #C9A84C 100%);
-    color: #160E08;
-    border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    font-family: 'Cinzel', serif; font-weight: 900; font-size: 14px;
-    box-shadow: 0 0 12px rgba(240,208,128,0.4);
-    flex-shrink: 0;
   }
-  .install-steps strong { color: var(--gold-light); }
-  .install-steps .share-icon {
-    display: inline-flex; align-items: center; justify-content: center;
-    width: 24px; height: 24px; border-radius: 5px;
-    background: rgba(0,122,255,0.18);
-    border: 1px solid rgba(0,122,255,0.6);
-    color: #4DA3FF; vertical-align: middle;
-    margin: 0 4px;
+  .install-icon-wrap img { width: 92px; height: 92px; border-radius: 50%; }
+  .install-title {
+    font-family: 'Cinzel', serif; font-size: clamp(24px, 4vw, 32px);
+    font-weight: 900; color: var(--white); margin-bottom: 10px; letter-spacing: 1px;
   }
-  .install-steps .share-icon svg { width: 14px; height: 14px; }
-
-  /* Android install button */
-  .install-btn {
-    display: block; margin: 22px auto 6px;
-    background: linear-gradient(135deg, #F8E5B0 0%, #C9A84C 100%);
+  .install-title .gold { color: var(--gold-light); }
+  .install-sub {
+    font-size: 15px; color: var(--muted); font-style: italic;
+    margin-bottom: 32px; line-height: 1.6;
+  }
+  .install-action {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 18px 36px;
+    background: linear-gradient(135deg, #D4A93D 0%, #8B6914 100%);
     color: #160E08;
     font-family: 'Cinzel', serif; font-size: 15px; font-weight: 900;
-    letter-spacing: 2px; text-transform: uppercase;
-    padding: 16px 32px; border-radius: 40px; border: 1px solid var(--gold-light);
-    box-shadow: 0 8px 30px rgba(212,169,61,0.45), inset 0 1px 0 rgba(255,255,255,0.35);
-    cursor: pointer; min-width: 240px;
-    transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    border-radius: 40px; border: 1px solid var(--gold-light);
+    box-shadow: 0 8px 30px rgba(212,169,61,0.5), inset 0 1px 0 rgba(255,255,255,0.35);
+    cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+    min-width: 260px;
   }
-  .install-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(212,169,61,0.6); }
-  .install-btn:disabled { opacity: 0.5; cursor: not-allowed; filter: grayscale(0.4); }
-
-  .install-fallback {
-    text-align: center; font-size: 13px; color: #8E7C66;
-    margin-top: 14px; font-style: italic;
+  .install-action:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(212,169,61,0.65);
   }
+  .install-action:disabled { opacity: 0.5; cursor: not-allowed; }
+  .install-action svg { width: 20px; height: 20px; }
 
   .install-hint {
-    max-width: 560px; margin: 24px auto 0; padding: 16px 20px;
-    background: rgba(201,168,76,0.06);
-    border-left: 3px solid var(--gold-dark);
-    border-radius: 4px;
-    font-size: 14px; line-height: 1.6; color: #C0B194;
+    margin-top: 26px;
+    font-size: 13px; color: #B5A37F;
+    line-height: 1.7;
   }
   .install-hint strong { color: var(--gold-light); }
-
-  /* QR section (desktop) */
-  .qr-wrap {
-    text-align: center;
-    margin: 20px 0;
+  .install-success {
+    color: #7BC97D;
+    font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 20px; display: none;
   }
-  .qr-url {
-    display: inline-block;
-    margin-top: 14px;
-    font-family: 'Lora', serif; font-size: 14px;
-    color: var(--gold-light);
-    background: rgba(0,0,0,0.4);
-    padding: 8px 16px; border-radius: 6px;
-    border: 1px solid rgba(201,168,76,0.3);
-    user-select: all;
-  }
+  .install-success.show { display: block; }
 </style>
 </head>
 <body>
@@ -154,179 +81,122 @@
   <span></span><span></span><span></span><span></span><span></span><span></span>
 </div>
 
-<svg class="rays" viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg">
-  <g transform="translate(400,0)">
-    <line x1="0" y1="0" x2="-400" y2="380" stroke="#C9A84C" stroke-width="1"/>
-    <line x1="0" y1="0" x2="-260" y2="380" stroke="#C9A84C" stroke-width="1"/>
-    <line x1="0" y1="0" x2="-130" y2="380" stroke="#C9A84C" stroke-width="1"/>
-    <line x1="0" y1="0" x2="0"    y2="380" stroke="#C9A84C" stroke-width="1"/>
-    <line x1="0" y1="0" x2="130"  y2="380" stroke="#C9A84C" stroke-width="1"/>
-    <line x1="0" y1="0" x2="260"  y2="380" stroke="#C9A84C" stroke-width="1"/>
-    <line x1="0" y1="0" x2="400"  y2="380" stroke="#C9A84C" stroke-width="1"/>
-  </g>
-</svg>
-
 <main class="shell">
-  <header class="install-hero">
-    <div class="install-phone-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="5" y="2" width="14" height="20" rx="3"/>
-        <line x1="12" y1="18" x2="12.01" y2="18"/>
-      </svg>
+  <div class="install-wrap">
+    <div class="install-icon-wrap">
+      <img src="../icon-192.png" alt="">
     </div>
-    <p class="page-eyebrow">Install on Your Phone</p>
-    <h1 class="page-title">The Calling, <span class="accent">Always With You</span></h1>
-    <p class="page-sub">Add the kit to your home screen — open it like a real app, even without internet.</p>
-    <div class="install-status" id="installStatus">Loading...</div>
-  </header>
+    <h1 class="install-title">Install on Your <span class="gold">Phone</span></h1>
+    <p class="install-sub">Tap below to add the kit to your home screen.</p>
 
-  <!-- iOS instructions -->
-  <div class="install-card" id="cardIOS">
-    <h2>For iPhone &amp; iPad</h2>
-    <p class="sub">Use Safari to add the app to your home screen.</p>
-    <ol class="install-steps">
-      <li>
-        Tap the
-        <span class="share-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><polyline points="8 7 12 3 16 7"/><path d="M5 12v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>
-        </span>
-        <strong>Share</strong> button at the bottom of Safari.
-      </li>
-      <li>Scroll down and tap <strong>"Add to Home Screen"</strong>.</li>
-      <li>Tap <strong>"Add"</strong> in the top-right corner.</li>
-      <li>Done! Find the angel icon on your home screen and open it like any app.</li>
-    </ol>
-    <div class="install-hint">
-      <strong>Note:</strong> This only works on <strong>Safari</strong> (the blue compass icon). Chrome on iPhone doesn't support installation.
-    </div>
+    <button class="install-action" id="installBtn" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      <span id="installBtnText">Install Now</span>
+    </button>
+
+    <p class="install-hint" id="installHint"></p>
+    <p class="install-success" id="installSuccess">✓ App is installed</p>
   </div>
-
-  <!-- Android instructions -->
-  <div class="install-card" id="cardAndroid">
-    <h2>For Android</h2>
-    <p class="sub">Install in one tap with Chrome.</p>
-    <button class="install-btn" id="androidInstallBtn" disabled>📥 Install the App</button>
-    <p class="install-fallback" id="androidFallback">Loading installer...</p>
-
-    <ol class="install-steps" id="androidManualSteps" style="display:none;">
-      <li>Tap the <strong>menu (⋮)</strong> in the top-right of Chrome.</li>
-      <li>Tap <strong>"Add to Home Screen"</strong> or <strong>"Install app"</strong>.</li>
-      <li>Confirm — the angel icon appears on your home screen.</li>
-    </ol>
-  </div>
-
-  <!-- Desktop fallback -->
-  <div class="install-card" id="cardDesktop">
-    <h2>Open This on Your Phone</h2>
-    <p class="sub">The app is designed for mobile devices.</p>
-    <div class="qr-wrap">
-      <p style="color:#EDDDC0; font-size:15px; line-height:1.7;">
-        Open this address on your phone's browser:
-      </p>
-      <span class="qr-url" id="appUrl"></span>
-    </div>
-    <div class="install-hint">
-      <strong>Tip:</strong> Use your phone to scan the email you received with your access link — once on the phone, return to this page and follow the install steps.
-    </div>
-  </div>
-
 </main>
 
 <nav class="bottom-nav" aria-label="Primary">
   <div class="bottom-nav-inner">
     <a class="nav-item" href="../index.html">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       Home
     </a>
     <a class="nav-item" href="../library/index.html">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
       Library
     </a>
     <a class="nav-item" href="../chants/index.html">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
       Chants
     </a>
     <a class="nav-item" href="../support/index.html">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
       Support
     </a>
   </div>
 </nav>
 
 <script>
-  // Detect device
-  function detectDevice() {
+  (function() {
     var ua = (navigator.userAgent || '').toLowerCase();
-    if (/iphone|ipad|ipod/.test(ua)) return 'ios';
-    if (/android/.test(ua)) return 'android';
-    return 'desktop';
-  }
+    var isIOS = /iphone|ipad|ipod/.test(ua);
+    var isAndroid = /android/.test(ua);
+    var isStandalone = window.matchMedia('(display-mode: standalone)').matches
+                    || window.navigator.standalone === true;
 
-  // Detect if already installed (standalone mode)
-  function isStandalone() {
-    return window.matchMedia('(display-mode: standalone)').matches
-      || window.navigator.standalone === true;
-  }
+    var btn = document.getElementById('installBtn');
+    var btnText = document.getElementById('installBtnText');
+    var hint = document.getElementById('installHint');
+    var success = document.getElementById('installSuccess');
 
-  var device = detectDevice();
-  var statusEl = document.getElementById('installStatus');
-
-  // Show correct card
-  if (isStandalone()) {
-    statusEl.textContent = '✓ App is installed';
-    statusEl.classList.add('installed');
-  } else if (device === 'ios') {
-    statusEl.textContent = 'iPhone / iPad detected';
-    document.getElementById('cardIOS').classList.add('active');
-  } else if (device === 'android') {
-    statusEl.textContent = 'Android detected';
-    document.getElementById('cardAndroid').classList.add('active');
-  } else {
-    statusEl.textContent = 'Desktop detected';
-    document.getElementById('cardDesktop').classList.add('active');
-    document.getElementById('appUrl').textContent = window.location.origin + '/app/';
-  }
-
-  // ===== Android PWA install flow =====
-  var deferredPrompt = null;
-  var installBtn = document.getElementById('androidInstallBtn');
-  var fallback = document.getElementById('androidFallback');
-  var manualSteps = document.getElementById('androidManualSteps');
-
-  window.addEventListener('beforeinstallprompt', function(e) {
-    e.preventDefault();
-    deferredPrompt = e;
-    installBtn.disabled = false;
-    fallback.textContent = 'Tap above to install instantly.';
-  });
-
-  // If after 1.5s no prompt event fired, show manual steps fallback
-  setTimeout(function() {
-    if (device === 'android' && !deferredPrompt) {
-      installBtn.style.display = 'none';
-      fallback.style.display = 'none';
-      manualSteps.style.display = 'block';
+    if (isStandalone) {
+      btn.style.display = 'none';
+      success.classList.add('show');
+      hint.innerHTML = 'You are already using the app.';
+      return;
     }
-  }, 1500);
 
-  installBtn.addEventListener('click', function() {
-    if (!deferredPrompt) return;
-    deferredPrompt.prompt();
-    deferredPrompt.userChoice.then(function(choice) {
-      if (choice.outcome === 'accepted') {
-        statusEl.textContent = '✓ App installed';
-        statusEl.classList.add('installed');
-      }
-      deferredPrompt = null;
+    var deferredPrompt = null;
+
+    if (isIOS) {
+      btnText.textContent = 'How to Install';
+      hint.innerHTML = '<strong>iPhone:</strong> Tap the <strong>Share</strong> button at the bottom of Safari, scroll down, and select <strong>"Add to Home Screen"</strong>.';
+      btn.addEventListener('click', function() {
+        hint.style.background = 'rgba(201,168,76,0.08)';
+        hint.style.padding = '14px 16px';
+        hint.style.borderRadius = '6px';
+        hint.style.border = '1px solid rgba(201,168,76,0.3)';
+      });
+    } else if (isAndroid) {
+      btn.disabled = true;
+      btnText.textContent = 'Loading...';
+      hint.innerHTML = 'Preparing the installer...';
+
+      window.addEventListener('beforeinstallprompt', function(e) {
+        e.preventDefault();
+        deferredPrompt = e;
+        btn.disabled = false;
+        btnText.textContent = 'Install Now';
+        hint.innerHTML = 'Tap above — the kit will appear on your home screen.';
+      });
+
+      setTimeout(function() {
+        if (!deferredPrompt) {
+          btn.disabled = false;
+          btnText.textContent = 'How to Install';
+          hint.innerHTML = '<strong>Android:</strong> Open the menu (⋮) in Chrome and tap <strong>"Add to Home Screen"</strong> or <strong>"Install app"</strong>.';
+        }
+      }, 1500);
+
+      btn.addEventListener('click', function() {
+        if (!deferredPrompt) return;
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then(function(choice) {
+          if (choice.outcome === 'accepted') {
+            btn.style.display = 'none';
+            success.classList.add('show');
+          }
+          deferredPrompt = null;
+        });
+      });
+    } else {
+      // Desktop
+      btnText.textContent = 'Open on Your Phone';
+      btn.disabled = true;
+      btn.style.opacity = '0.6';
+      btn.style.cursor = 'default';
+      hint.innerHTML = 'The app installs on phones. Open this page on your <strong>iPhone or Android</strong> to install.';
+    }
+
+    window.addEventListener('appinstalled', function() {
+      btn.style.display = 'none';
+      success.classList.add('show');
     });
-  });
-
-  window.addEventListener('appinstalled', function() {
-    statusEl.textContent = '✓ App installed';
-    statusEl.classList.add('installed');
-    installBtn.disabled = true;
-    installBtn.textContent = '✓ Installed';
-  });
+  })();
 </script>
 
 </body>
