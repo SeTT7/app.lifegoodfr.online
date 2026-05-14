@@ -424,8 +424,8 @@ body::before {
   padding: 8px 6px max(8px, env(safe-area-inset-bottom));
 }
 .bottom-nav-inner {
-  max-width: 640px; margin: 0 auto;
-  display: grid; grid-template-columns: repeat(6, 1fr); gap: 2px;
+  max-width: 480px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px;
 }
 .nav-item {
   display: flex; flex-direction: column; align-items: center; gap: 4px;
@@ -484,3 +484,104 @@ body::before {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
   .dust { display: none; }
 }
+
+/* ============== PDF ACCESS BUTTONS (top of each module page) ============== */
+.pdf-actions {
+  display: flex; gap: 12px; flex-wrap: wrap;
+  justify-content: center; align-items: center;
+  max-width: 560px; margin: 0 auto 40px;
+}
+.pdf-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 16px 28px;
+  background: linear-gradient(135deg, #D4A93D 0%, #8B6914 100%);
+  color: #160E08;
+  font-family: 'Cinzel', serif; font-size: 13px; font-weight: 900; letter-spacing: 2px;
+  text-transform: uppercase; text-decoration: none;
+  border-radius: 40px; border: 1px solid var(--gold-light);
+  box-shadow: 0 8px 24px rgba(212,169,61,0.4), inset 0 1px 0 rgba(255,255,255,0.35);
+  cursor: pointer; flex: 1; min-width: 200px; max-width: 280px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.pdf-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(212,169,61,0.55); }
+.pdf-btn svg { width: 18px; height: 18px; }
+.pdf-btn-secondary {
+  background: transparent; color: var(--gold);
+  border: 1px solid var(--gold-dark);
+  box-shadow: none;
+}
+.pdf-btn-secondary:hover {
+  background: rgba(201,168,76,0.08);
+  color: var(--gold-light); border-color: var(--gold-light);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+/* ============== PDF MODAL (fullscreen viewer) ============== */
+.pdf-modal {
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(0,0,0,0.92);
+  display: none;
+  flex-direction: column;
+  animation: pdfFadeIn 0.25s ease;
+}
+.pdf-modal.active { display: flex; }
+@keyframes pdfFadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.pdf-modal-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 18px;
+  background: linear-gradient(135deg, #0F0A04 0%, #1A1208 100%);
+  border-bottom: 1px solid rgba(201,168,76,0.3);
+  flex-shrink: 0;
+}
+.pdf-modal-title {
+  font-family: 'Cinzel', serif; font-size: 14px; letter-spacing: 1.5px;
+  color: var(--gold-light); font-weight: 700;
+  text-transform: uppercase;
+  flex: 1; padding-right: 12px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.pdf-modal-close {
+  background: transparent; border: 1px solid rgba(201,168,76,0.4);
+  color: var(--gold); width: 38px; height: 38px;
+  border-radius: 50%; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s; flex-shrink: 0;
+}
+.pdf-modal-close:hover { border-color: var(--gold-light); color: var(--gold-light); background: rgba(201,168,76,0.1); }
+.pdf-modal-close svg { width: 18px; height: 18px; }
+
+.pdf-modal-body {
+  flex: 1;
+  background: #1A1208;
+  overflow: hidden;
+  position: relative;
+}
+.pdf-modal-iframe {
+  width: 100%; height: 100%;
+  border: none;
+  display: block;
+}
+.pdf-modal-fallback {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 24px; text-align: center;
+  color: var(--cream); pointer-events: none;
+  opacity: 0;
+}
+.pdf-modal-fallback.show { opacity: 1; pointer-events: auto; }
+.pdf-modal-fallback h3 {
+  font-family: 'Cinzel', serif; font-size: 18px; color: var(--gold-light);
+  margin-bottom: 14px;
+}
+.pdf-modal-fallback p { font-size: 14px; color: var(--muted); margin-bottom: 20px; max-width: 380px; }
+.pdf-modal-fallback a {
+  display: inline-block; padding: 14px 28px;
+  background: linear-gradient(135deg, #D4A93D 0%, #8B6914 100%);
+  color: #160E08; font-family: 'Cinzel', serif;
+  font-size: 13px; font-weight: 900; letter-spacing: 2px;
+  text-transform: uppercase; text-decoration: none;
+  border-radius: 40px;
+}
+
+body.pdf-modal-open { overflow: hidden; }

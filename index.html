@@ -9,6 +9,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="My Angel">
 <link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <title>The Calling of My Angel — A spiritual journey</title>
 <meta property="og:title" content="The Calling of My Angel">
 <meta property="og:description" content="A spiritual journey through sacred texts, Gregorian chants, and divine practices.">
@@ -45,61 +47,119 @@
 
   <div class="star-divider"><span>★</span></div>
 
+  <!-- BRIEFING -->
+  <section class="briefing">
+    <p>
+      Welcome, sacred seeker. Within these pages you'll find your complete kit —
+      <strong>four ancient books</strong>, a <strong>library of Gregorian chants</strong>,
+      and a <strong>daily ritual practice</strong> waiting to walk with you.
+    </p>
+    <p>
+      Take your time. Return as often as you need.
+      <em>Your Guardian Angel is already listening.</em>
+    </p>
+  </section>
+
+  <!-- INSTALL APP — hidden when running as PWA -->
+  <section class="install-cta" id="installCta">
+    <a class="download-btn" href="app/index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+      Install on Your Phone
+    </a>
+    <p class="install-cta-note">Open the kit like a real app, even without internet.</p>
+  </section>
+
+  <!-- 3 MAIN HUB CARDS -->
   <section class="home-cards">
-    <a class="home-card" href="calling/index.html">
-      <span class="home-card-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-      </span>
-      <div class="home-card-body">
-        <h2 class="home-card-title">The Calling of My Angel</h2>
-        <p class="home-card-desc">A guide to connecting with your Guardian Angel</p>
-      </div>
-    </a>
-
-    <a class="home-card" href="chants/index.html">
-      <span class="home-card-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-      </span>
-      <div class="home-card-body">
-        <h2 class="home-card-title">The Sacred Chants</h2>
-        <p class="home-card-desc">How to listen to sacred Gregorian chants</p>
-      </div>
-    </a>
-
-    <a class="home-card" href="revelation/index.html">
-      <span class="home-card-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.9H20l-5 3.6 1.9 5.9L12 14.8 6.1 18.4 8 12.5 3 8.9h6.1z"/></svg>
-      </span>
-      <div class="home-card-body">
-        <h2 class="home-card-title">The Dead Sea Revelation</h2>
-        <p class="home-card-desc">Revelations from the desert and eternal wisdom</p>
-      </div>
-    </a>
-
-    <a class="home-card" href="ritual/index.html">
+    <a class="home-card home-card-hero" href="library/index.html">
       <span class="home-card-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
       </span>
       <div class="home-card-body">
-        <h2 class="home-card-title">Divine Body Ritual</h2>
-        <p class="home-card-desc">Transformative practices for the sacred body</p>
+        <h2 class="home-card-title">Library</h2>
+        <p class="home-card-desc">The four sacred books — read each chapter at your pace.</p>
       </div>
+      <span class="home-card-arrow">›</span>
+    </a>
+
+    <a class="home-card home-card-hero" href="chants/index.html">
+      <span class="home-card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+      </span>
+      <div class="home-card-body">
+        <h2 class="home-card-title">Chants</h2>
+        <p class="home-card-desc">Sacred Gregorian audio — listen anywhere, anytime.</p>
+      </div>
+      <span class="home-card-arrow">›</span>
+    </a>
+
+    <a class="home-card home-card-hero" href="support/index.html">
+      <span class="home-card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      </span>
+      <div class="home-card-body">
+        <h2 class="home-card-title">Support</h2>
+        <p class="home-card-desc">Questions, refund requests, or anything else.</p>
+      </div>
+      <span class="home-card-arrow">›</span>
     </a>
   </section>
 
-  <section class="download-section">
-    <div class="download-stack">
-      <a class="download-btn" href="https://drive.google.com/drive/folders/1VVO3sW27-1pUgzj5XWC8TYDDHEXFvL3P?usp=sharing" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Download all content
-      </a>
-      <a class="download-btn download-btn-secondary" href="app/index.html">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-        Install on Your Phone
-      </a>
-    </div>
-  </section>
 </main>
+
+<style>
+  .briefing {
+    max-width: 580px; margin: 0 auto 28px;
+    text-align: center;
+    font-family: 'Lora', Georgia, serif;
+    font-size: clamp(15px, 2vw, 17px);
+    line-height: 1.75;
+    color: #D4C9B5;
+  }
+  .briefing p { margin-bottom: 14px; }
+  .briefing p:last-child { margin-bottom: 0; }
+  .briefing strong { color: var(--gold-light); font-weight: 600; }
+  .briefing em { color: var(--gold); font-style: italic; }
+
+  .install-cta {
+    max-width: 460px; margin: 0 auto 40px;
+    text-align: center;
+    padding: 22px 18px;
+    background: linear-gradient(135deg, rgba(201,168,76,0.08), rgba(201,168,76,0.02));
+    border: 1px dashed rgba(201,168,76,0.35);
+    border-radius: 10px;
+  }
+  .install-cta .download-btn { margin-bottom: 10px; }
+  .install-cta-note {
+    font-size: 12px; color: #8E7C66; font-style: italic;
+    letter-spacing: 0.3px;
+  }
+  body.is-pwa .install-cta { display: none; }
+
+  /* Bigger hero cards for the 3 hub items */
+  .home-card-hero { padding: 28px 26px; align-items: center; }
+  .home-card-hero .home-card-icon { width: 54px; height: 54px; flex-basis: 54px; }
+  .home-card-hero .home-card-icon svg { width: 26px; height: 26px; }
+  .home-card-hero .home-card-title { font-size: 22px; margin-bottom: 4px; }
+  .home-card-hero .home-card-desc { font-size: 15px; }
+  .home-card-arrow {
+    font-family: 'Cinzel', serif; font-size: 26px;
+    color: var(--gold); opacity: 0.55;
+    margin-left: auto; padding-left: 10px;
+    transition: transform 0.2s, opacity 0.2s;
+  }
+  .home-card-hero:hover .home-card-arrow { transform: translateX(4px); opacity: 1; }
+</style>
+
+<script>
+  // Hide "Install on Your Phone" if already running as PWA / standalone
+  (function() {
+    if (window.matchMedia('(display-mode: standalone)').matches
+        || window.navigator.standalone === true) {
+      document.body.classList.add('is-pwa');
+    }
+  })();
+</script>
 
 <nav class="bottom-nav" aria-label="Primary">
   <div class="bottom-nav-inner">
@@ -107,21 +167,13 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       Home
     </a>
-    <a class="nav-item" href="calling/index.html">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-      Calling
+    <a class="nav-item" href="library/index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      Library
     </a>
     <a class="nav-item" href="chants/index.html">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
       Chants
-    </a>
-    <a class="nav-item" href="revelation/index.html">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.9H20l-5 3.6 1.9 5.9L12 14.8 6.1 18.4 8 12.5 3 8.9h6.1z"/></svg>
-      Revelation
-    </a>
-    <a class="nav-item" href="ritual/index.html">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-      Ritual
     </a>
     <a class="nav-item" href="support/index.html">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
