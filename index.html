@@ -136,6 +136,70 @@
   }
   body.is-pwa .install-cta { display: none; }
 
+  /* ===== iOS install guide ===== */
+  .ios-guide {
+    text-align: left;
+    animation: iosGuideIn 0.4s ease-out;
+  }
+  @keyframes iosGuideIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+  .ios-guide-title {
+    font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--gold);
+    text-align: center; margin-bottom: 18px;
+    text-shadow: 0 0 10px rgba(248,229,176,0.4);
+  }
+  .ios-guide-steps {
+    list-style: none; padding: 0; margin: 0 0 18px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .ios-guide-steps li {
+    display: flex; align-items: flex-start; gap: 12px;
+    font-family: 'Lora', serif; font-size: 14px;
+    line-height: 1.55; color: var(--cream);
+  }
+  .ios-step-num {
+    flex: 0 0 28px; height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-warm, #D4A93D) 100%);
+    color: #160E08;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cinzel', serif; font-weight: 900; font-size: 13px;
+    box-shadow: 0 0 12px rgba(248,229,176,0.5);
+  }
+  .ios-step-text strong { color: var(--gold-light); }
+  .ios-share-icon {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 26px; height: 26px;
+    border-radius: 5px;
+    background: rgba(0,122,255,0.18);
+    border: 1px solid rgba(0,122,255,0.6);
+    color: #4DA3FF;
+    vertical-align: middle;
+    margin: 0 3px;
+  }
+  .ios-guide-arrows {
+    display: flex; justify-content: center; gap: 8px;
+    margin: 4px 0 8px;
+    font-size: 26px; color: var(--gold-light);
+    text-shadow: 0 0 14px rgba(248,229,176,0.6);
+  }
+  .ios-guide-arrows span {
+    animation: bounceDown 1.4s ease-in-out infinite;
+  }
+  .ios-guide-arrows span:nth-child(2) { animation-delay: 0.15s; }
+  .ios-guide-arrows span:nth-child(3) { animation-delay: 0.30s; }
+  @keyframes bounceDown {
+    0%, 100% { transform: translateY(0); opacity: 0.4; }
+    50%      { transform: translateY(8px); opacity: 1; }
+  }
+  .ios-guide-bottom-hint {
+    text-align: center;
+    font-family: 'Lora', serif; font-size: 12px;
+    color: var(--gold); font-style: italic;
+    letter-spacing: 0.5px; margin: 0;
+  }
+  .ios-guide-bottom-hint svg { color: #4DA3FF; }
+
   /* Bigger hero cards for the 3 hub items */
   .home-card-hero { padding: 28px 26px; align-items: center; }
   .home-card-hero .home-card-icon { width: 54px; height: 54px; flex-basis: 54px; }
@@ -184,15 +248,9 @@
         });
         return;
       }
-      // iOS Safari — show inline instructions
+      // iOS Safari — show rich visual instructions
       if (isIOS) {
-        note.innerHTML = 'Tap the <strong>Share</strong> button at the bottom of Safari, scroll down, and select <strong>"Add to Home Screen"</strong>.';
-        note.style.color = 'var(--gold-light)';
-        note.style.fontStyle = 'normal';
-        note.style.padding = '12px 14px';
-        note.style.background = 'rgba(201,168,76,0.1)';
-        note.style.borderRadius = '6px';
-        note.style.border = '1px solid rgba(201,168,76,0.3)';
+        showIOSGuide();
         return;
       }
       // Desktop or unsupported browser
@@ -203,6 +261,39 @@
     window.addEventListener('appinstalled', function() {
       document.getElementById('installCta').style.display = 'none';
     });
+
+    function showIOSGuide() {
+      var cta = document.getElementById('installCta');
+      cta.innerHTML =
+        '<div class="ios-guide">' +
+          '<p class="ios-guide-title">📱 Install on Your iPhone</p>' +
+          '<ol class="ios-guide-steps">' +
+            '<li>' +
+              '<span class="ios-step-num">1</span>' +
+              '<span class="ios-step-text">Tap the <strong>Share</strong> button ' +
+                '<span class="ios-share-icon" aria-hidden="true">' +
+                  '<svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+                    '<path d="M7 1L7 11M7 1L3 5M7 1L11 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>' +
+                    '<rect x="1" y="7" width="12" height="10" rx="2" stroke="currentColor" stroke-width="1.6"/>' +
+                  '</svg>' +
+                '</span>' +
+                ' at the bottom of Safari.</span>' +
+            '</li>' +
+            '<li>' +
+              '<span class="ios-step-num">2</span>' +
+              '<span class="ios-step-text">Scroll down and tap <strong>"Add to Home Screen"</strong>.</span>' +
+            '</li>' +
+            '<li>' +
+              '<span class="ios-step-num">3</span>' +
+              '<span class="ios-step-text">Tap <strong>"Add"</strong> — done!</span>' +
+            '</li>' +
+          '</ol>' +
+          '<div class="ios-guide-arrows" aria-hidden="true">' +
+            '<span>↓</span><span>↓</span><span>↓</span>' +
+          '</div>' +
+          '<p class="ios-guide-bottom-hint">Look for the <svg width="13" height="16" viewBox="0 0 14 18" fill="none" style="display:inline-block;vertical-align:-3px;margin:0 2px;"><path d="M7 1L7 11M7 1L3 5M7 1L11 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><rect x="1" y="7" width="12" height="10" rx="2" stroke="currentColor" stroke-width="1.6"/></svg> icon below ↓</p>' +
+        '</div>';
+    }
   })();
 </script>
 
